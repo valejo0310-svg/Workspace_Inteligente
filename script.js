@@ -23,6 +23,7 @@ const darkModeBtn = document.getElementById('toggle-dark-mode');
 
 // Se cargan las tareas desde localStorage.
 // Si no existen tareas guardadas, se inicia con un array vacío.
+//JSON.parse cumple la funcion de convertir una cadena de texto en formato JSON
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 // Se recupera el último filtro usado desde sessionStorage.
