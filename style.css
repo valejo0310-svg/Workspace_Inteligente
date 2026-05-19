@@ -1,0 +1,156 @@
+/* --- VARIABLES Y RESET --- */
+:root {
+    --primary-color: #6366f1;
+    --primary-hover: #4f46e5;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --transition: all 0.3s ease;
+}
+
+body.dark-mode {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    transition: var(--transition);
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+    font-size: 1.1rem;
+    min-height: 100vh;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.container {
+    width: 100%;
+    max-width: 650px;
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    /* Evita que el contenedor se desborde en pantallas pequeñas */
+    overflow: hidden; 
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    flex-shrink: 1; /* Permite que el título se ajuste si es necesario */
+}
+
+/* --- BOTONES Y ENTRADAS --- */
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0.8rem 1.2rem;
+    font-weight: 600;
+    transition: var(--transition);
+    white-space: nowrap; /* Evita que el texto de los botones se corte */
+}
+
+.input-section {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+input {
+    flex: 1;
+    min-width: 0; /* Importante para que el input no empuje el margen */
+    padding: 0.8rem;
+    font-size: 1rem;
+    border-radius: 0.75rem;
+    border: 2px solid var(--border-color);
+    background: var(--bg-color);
+    color: var(--text-main);
+}
+
+/* --- LISTA DE TAREAS (Control de Desbordamiento) --- */
+#task-list {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.2rem;
+    background: var(--bg-color);
+    margin-bottom: 0.75rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border-color);
+    gap: 1rem;
+}
+
+/* Ajuste crítico para el texto de la tarea */
+li span {
+    flex: 1;
+    font-size: 1.1rem;
+    word-break: break-word; /* Rompe palabras largas para que no se salgan */
+    overflow-wrap: break-word;
+    line-height: 1.4;
+}
+
+li.completed span {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+/* Contenedor de botones de acción en cada tarea */
+li div {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0; /* Evita que los botones se achiquen */
+}
+
+/* --- FILTROS (Responsivos) --- */
+.filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap; /* Si no caben en una línea, bajan a la siguiente */
+}
+
+.filters button {
+    flex: 1;
+    min-width: 80px;
+    font-size: 0.9rem;
+    padding: 0.6rem;
+    background: var(--bg-color);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+}
+
+#stats {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
